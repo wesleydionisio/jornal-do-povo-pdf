@@ -12,7 +12,7 @@ class GeradorPdf:
     def adiciona_pagina(self, url_imagem):
         imagem = ImageReader(url_imagem)
 
-        self.pdf.drawImage(imagem, 0, 0, 590, 830)
+        self.pdf.drawImage(imagem, 0, 0, 595, 842)
         self.pdf.showPage()
 
     def adiciona_paginas(self, paginas):
@@ -21,4 +21,6 @@ class GeradorPdf:
         
     def salva_pdf(self):
         self.pdf.save()
-        os.open(self.arquivo)
+
+        caminho_completo = f'{os.getcwd()}/{self.arquivo}'
+        os.startfile(caminho_completo)
