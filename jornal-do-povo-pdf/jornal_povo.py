@@ -5,7 +5,7 @@ import requests
 
 class JornalPovo:
     def __init__(self) -> None:
-        self.url_base = 'http://www.jornaldopovo.com.br/'
+        self.url_base = 'https://www.jornaldopovo.net/'
         pass
 
     def get_paginas(self, data):
@@ -15,12 +15,14 @@ class JornalPovo:
         paginas = []
 
         while continuar_procurando:
-            url = f'{self.url_base}/flip/edicoes/{data}/jpg//edicao-{data}-page-{contador:03}.jpg'
-            
+            url = f'{self.url_base}/_app/_files/edicao/{data}/jpg/edicao-{data}-page-{contador}.jpg'
+
             try:
                 r = requests.get(url, allow_redirects=False, stream=True)
 
-                if r.status_code == 200:
+                content_type = r.headers.get('Content-Type')
+
+                if r.status_code == 200 and content_type.startswith('image'):
                     paginas.append(url)
                 else:
                     continuar_procurando = False
