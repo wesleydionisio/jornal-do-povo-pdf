@@ -16,8 +16,10 @@ class GeradorPdf:
         self.pdf.showPage()
 
     def adiciona_paginas(self, paginas):
-        for pagina in paginas:
-            self.adiciona_pagina(pagina)
+        for pagina, url_imagem in enumerate(paginas, start=1):
+
+            print(f'Adicionando página {pagina} de {len(paginas)}...')
+            self.adiciona_pagina(url_imagem)
         
     def salva_pdf(self):
         self.pdf.save()
