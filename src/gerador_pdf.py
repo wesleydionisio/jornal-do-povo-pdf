@@ -3,9 +3,10 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
 import os
 
+
 class GeradorPdf:
     def __init__(self, data_jornal):
-        self.arquivo = f'pdfs/{data_jornal}.pdf'
+        self.arquivo = f'{data_jornal}.pdf'
         self.pdf = canvas.Canvas(self.arquivo, pagesize=A4)
         self.pdf.setTitle(data_jornal)
 
@@ -20,7 +21,7 @@ class GeradorPdf:
 
             print(f'Adicionando página {pagina} de {len(paginas)}...')
             self.adiciona_pagina(url_imagem)
-        
+
     def salva_pdf(self):
         self.pdf.save()
 
