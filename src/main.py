@@ -5,16 +5,17 @@ from gerador_pdf import GeradorPdf
 
 def main():
     today = date.today()
-    data_jornal = today.strftime("%Y%m%d")
+    today_date = today.strftime("%Y%m%d")
+    today_day = today.strftime("%d")
 
     print(f'Baixando versão impressa Jornal do Povo'
           + f' - ({today.strftime("%d/%m/%Y")})...')
 
     jp = JornalPovo()
-    paginas = jp.get_paginas(data_jornal)
+    pages = jp.get_pages(today_date, today_day)
 
-    pdf = GeradorPdf(data_jornal)
-    pdf.adiciona_paginas(paginas)
+    pdf = GeradorPdf(today_date)
+    pdf.adiciona_paginas(pages)
 
     pdf.salva_pdf()
 
