@@ -11,7 +11,7 @@ class JornalPovo:
         counter = 1
 
         while keep_looking:
-            url = f'{self.url_base}/cliente/img/edicao/{date}/jpg/{day}pg{str(counter).zfill(2)}.jpg'
+            url = f'{self.url_base}/cliente/img/edicao/{date}/jpg/{day}pg{str(counter).zfill(2)}_copy.jpg'
 
             try:
                 r = requests.get(url, allow_redirects=False, stream=True)
