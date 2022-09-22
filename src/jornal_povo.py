@@ -29,7 +29,7 @@ class JornalPovo:
         objetive = False
 
         while keep_looking:
-            url = f'{self.url_base}/cliente/img/edicao/{date}/jpg/{day}pg{str(counter).zfill(2)}{prefix[counterPrefix]}'
+            url = f'{self.url_base}/cliente/img/edicao/{date}/jpg/jp{date}{str(counter)}{prefix[counterPrefix]}'
             try:
                 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
                 r = requests.get(url, allow_redirects=False, stream=True, headers=headers)
